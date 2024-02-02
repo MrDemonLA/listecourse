@@ -1,0 +1,36 @@
+.DisplayOff {
+  display: none;
+  z-index: -1;
+}
+
+.ButtonContenair {
+  display: flex;
+  justify-content: space-between;
+  margin: 0;
+}
+
+.Button {
+  margin-top: 5%;
+  margin: 5% 0 0 0;
+  border: none;
+  padding: 2% 5%;
+  border-radius: 50px;
+  font-family: "Protest Revolution", sans-serif;
+  color: white;
+  text-align: center;
+}
+#Add {
+  background-image: linear-gradient(207deg, #ffe53b 0%, #ff2525 74%);
+  box-shadow: rgba(255, 229, 59, 0.2) 0 -25px 18px -14px inset,
+    rgba(255, 37, 37, 0.15) 0 1px 2px, rgba(255, 37, 37, 0.15) 0 2px 4px,
+    rgba(255, 37, 37, 0.15) 0 4px 8px, rgba(255, 37, 37, 0.15) 0 8px 16px,
+    rgba(255, 37, 37, 0.15) 0 16px 32px;
+}
+
+#Liste {
+  background-image: linear-gradient(147deg, #ffe53b 0%, #ff2525 74%);
+  box-shadow: rgba(255, 229, 59, 0.2) 0 -25px 18px -14px inset,
+    rgba(255, 37, 37, 0.15) 0 1px 2px, rgba(255, 37, 37, 0.15) 0 2px 4px,
+    rgba(255, 37, 37, 0.15) 0 4px 8px, rgba(255, 37, 37, 0.15) 0 8px 16px,
+    rgba(255, 37, 37, 0.15) 0 16px 32px;
+}

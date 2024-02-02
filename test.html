@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Barcode Scanner</title>
+  </head>
+  <body>
+    <div id="barcode-scanner"></div>
+    <div id="barcode-result"></div>
+    <!-- Nouvelle ligne pour afficher le résultat -->
+
+    <script src="https://cdn.jsdelivr.net/npm/quagga@0.12.1/dist/quagga.min.js"></script>
+    <script>
+      const config = {
+        inputStream: {
+          name: "Live",
+          type: "LiveStream",
+          target: document.querySelector("#barcode-scanner"),
+          constraints: {
+            width: 480,
+            height: 320,
+            facingMode: "user",
+          },
+        },
+        decoder: {
+          readers: ["code_128_reader", "ean_reader"],
+        },
+      };
+
+      Quagga.init(config, function (err) {
+        if (err) {
+          console.error(err);
+          return;
+        }
+        Quagga.start();
+      });
+
+      Quagga.onDetected(function (result) {
+        const code = result.codeResult.code;
+        console.log("Code-barres détecté : " + code);
+
+        // Affichez le numéro du code-barres sous le scanner
+        const barcodeResultElement = document.querySelector("#barcode-result");
+        barcodeResultElement.textContent = "Code-barres détecté : " + code;
+
+        Quagga.stop();
+      });
+    </script>
+  </body>
+</html>
