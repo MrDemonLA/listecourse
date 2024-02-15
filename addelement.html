@@ -21,14 +21,19 @@
   </head>
   <body>
     <div class="ButtonContenair">
-      <a id="left" class="Button" href="addelement.html">Ajouter un élèment</a>
+      <a id="left" class="Button" href="index.html">Scan</a>
       <a id="right" class="Button" href="list.html">liste des courses</a>
     </div>
-    <div id="camera" class="camera"></div>
+    <div id="ModalAdd">
+      <p>Nom du produit</p>
+      <input type="text" id="AddText" />
+      <div id="AddCamera" class="camera"></div>
+      <button id="AddElement" class="AddElement" disabled>Valider</button>
+    </div>
   </body>
   <footer>
     <script src="assets/js/quagga.min.js"></script>
-    <script src="assets/js/quagga.js"></script>
+    <script src="assets/js/quaggaAdd.js"></script>
     <script src="assets/js/function.js"></script>
     <script src="assets/js/index.js"></script>
   </footer>

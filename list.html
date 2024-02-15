@@ -10,6 +10,15 @@
       href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=Work+Sans&display=swap"
       rel="stylesheet"
     />
+
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css"
+      integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -21,15 +30,23 @@
   </head>
   <body>
     <div class="ButtonContenair">
-      <a id="left" class="Button" href="addelement.html">Ajouter un élèment</a>
-      <a id="right" class="Button" href="list.html">liste des courses</a>
+      <a id="left" class="Button" href="addelement.html">ajouter un élèment</a>
+      <a id="right" class="Button" href="index.html">Scan</a>
     </div>
-    <div id="camera" class="camera"></div>
+    <div id="List"></div>
+    <button class="ClearList">Vider la liste</button>
+    <div class="modal" id="confirmationModal">
+      <div class="modal-content">
+        <p>Voulez-vous vraiment supprimer la liste ?</p>
+        <div class="modal-buttons">
+          <button id="cancelButton">Annuler</button>
+          <button id="confirmButton">Confirmer</button>
+        </div>
+      </div>
+    </div>
   </body>
   <footer>
-    <script src="assets/js/quagga.min.js"></script>
-    <script src="assets/js/quagga.js"></script>
-    <script src="assets/js/function.js"></script>
     <script src="assets/js/index.js"></script>
+    <script src="assets/js/function.js"></script>
   </footer>
 </html>

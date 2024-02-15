@@ -3,6 +3,11 @@
   z-index: -1;
 }
 
+p,
+button {
+  font-family: "Protest Revolution", sans-serif;
+}
+
 .ButtonContenair {
   display: flex;
   justify-content: space-between;
@@ -10,7 +15,6 @@
 }
 
 .Button {
-  margin-top: 5%;
   margin: 5% 0 0 0;
   border: none;
   padding: 2% 5%;
@@ -18,8 +22,10 @@
   font-family: "Protest Revolution", sans-serif;
   color: white;
   text-align: center;
+  text-decoration: none;
 }
-#Add {
+
+#left {
   background-image: linear-gradient(207deg, #ffe53b 0%, #ff2525 74%);
   box-shadow: rgba(255, 229, 59, 0.2) 0 -25px 18px -14px inset,
     rgba(255, 37, 37, 0.15) 0 1px 2px, rgba(255, 37, 37, 0.15) 0 2px 4px,
@@ -27,10 +33,145 @@
     rgba(255, 37, 37, 0.15) 0 16px 32px;
 }
 
-#Liste {
+#right {
   background-image: linear-gradient(147deg, #ffe53b 0%, #ff2525 74%);
   box-shadow: rgba(255, 229, 59, 0.2) 0 -25px 18px -14px inset,
     rgba(255, 37, 37, 0.15) 0 1px 2px, rgba(255, 37, 37, 0.15) 0 2px 4px,
     rgba(255, 37, 37, 0.15) 0 4px 8px, rgba(255, 37, 37, 0.15) 0 8px 16px,
     rgba(255, 37, 37, 0.15) 0 16px 32px;
+}
+
+.camera {
+  display: flex;
+  margin: 5%;
+}
+
+video {
+  width: 100%;
+}
+
+.drawingBuffer {
+  position: absolute;
+  width: 87%;
+  height: auto;
+}
+
+#ModalAdd {
+  margin: 5% 5%;
+}
+
+#ModalAdd .camera {
+  margin: 5% 0;
+}
+
+#AddText {
+  margin: 0 4%;
+  width: 90%;
+  font-size: 16px;
+}
+
+.AddElement {
+  margin: 2% 5%;
+  width: 90%;
+  padding: 4% 0%;
+  border: none;
+  border-radius: 50px;
+  background-color: rgb(136, 134, 131);
+  font-family: "Protest Revolution", sans-serif;
+  color: white;
+  text-align: center;
+  font-size: 22px;
+}
+
+.Validated {
+  background-color: green;
+}
+
+.Element {
+  overflow: hidden;
+  display: flex;
+  justify-content: space-between;
+  padding: 0 0 0 5%;
+  margin: 5%;
+  border-radius: 20px;
+  font-size: 24px;
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px inset,
+    rgba(0, 0, 0, 0.3) 0px 18px 36px -18px inset;
+}
+
+.DeleteBtn {
+  border: none;
+  width: 0;
+  padding: 0;
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px inset,
+    rgba(0, 0, 0, 0.3) 0px 18px 36px -18px inset;
+  background-color: #ff0000;
+  overflow: auto;
+  transition: width 0.5s ease;
+}
+
+.fa-solid {
+  font-size: 25px;
+}
+
+.ClearList {
+  border: none;
+  background-image: linear-gradient(180deg, #ff5c5c, #ff0000);
+  width: 90%;
+  padding: 5% 0;
+  margin: 5%;
+  border-radius: 20px;
+  font-size: 24px;
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px inset,
+    rgba(0, 0, 0, 0.3) 0px 18px 36px -18px inset;
+}
+
+.modal {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 1000;
+}
+
+.modal-content {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 65%;
+  background-color: white;
+  padding: 5%;
+  border-radius: 15px;
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px inset,
+    rgba(0, 0, 0, 0.3) 0px 18px 36px -18px inset;
+}
+
+.modal-buttons {
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  margin-top: 10%;
+  margin-bottom: 5%;
+}
+
+.modal-buttons button {
+  margin: 0 10px;
+  padding: 5% 10%;
+  border: none;
+  border-radius: 5%;
+  font-size: 16px;
+}
+
+#confirmButton {
+  background-image: linear-gradient(180deg, #60fba3, #0caaa3);
+}
+
+#cancelButton {
+  background-image: linear-gradient(180deg, #ff5c5c, #ff0000);
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px inset,
+    rgba(0, 0, 0, 0.3) 0px 18px 36px -18px inset;
 }
