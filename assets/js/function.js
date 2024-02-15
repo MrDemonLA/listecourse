@@ -64,7 +64,8 @@ function refreshList() {
     // Ajoutez un écouteur d'événements pour confirmer la suppression de la liste et masquer la boîte de dialogue
     confirmButton.addEventListener("click", () => {
       // Mettez votre logique de suppression de liste ici
-      TabList = [];
+      TabList.length = 0;
+      refreshList();
       // Masquer la boîte de dialogue
       confirmationModal.style.display = "none";
     });

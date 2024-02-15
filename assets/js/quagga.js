@@ -3,7 +3,7 @@ Quagga.init(
     inputStream: {
       name: "Live",
       type: "LiveStream",
-      target: document.querySelector("#camera"),
+      target: document.querySelector("#AddCamera"),
     },
     decoder: {
       readers: ["code_128_reader"],
@@ -21,7 +21,8 @@ Quagga.init(
 
 Quagga.onDetected(function (data) {
   const code = data.codeResult.code;
-  console.log("Code detected:", code);
+  console.log(code);
+  AddText.value = code;
   // Vérifier si le code est déjà présent dans TabList
   if (TabList.includes(code)) {
     console.log("Code already exists in TabList.");
@@ -31,3 +32,5 @@ Quagga.onDetected(function (data) {
     console.log("Updated TabList:", TabList);
   }
 });
+
+console.log(list);
