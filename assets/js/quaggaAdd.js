@@ -23,16 +23,14 @@ Quagga.onDetected(function (data) {
   const code = data.codeResult.code;
   console.log(code);
   AddText.value = code;
-  AddElement.disabled = false;
-  AddElement.className = "Validated AddElement";
-});
-
-AddElement.addEventListener("click", () => {
-  list.push(AddText.value);
-  console.log(list);
-  AddElement.disabled = true;
-  AddElement.className = "AddElement";
-  AddText.value = "";
+  // Vérifier si le code est déjà présent dans TabList
+  if (TabList.includes(code)) {
+    console.log("Code already exists in TabList.");
+  } else {
+    // Ajouter le code détecté dans TabList
+    TabList.push(code);
+    console.log("Updated TabList:", TabList);
+  }
 });
 
 console.log(list);

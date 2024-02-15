@@ -70,23 +70,6 @@ video {
   font-size: 16px;
 }
 
-.AddElement {
-  margin: 2% 5%;
-  width: 90%;
-  padding: 4% 0%;
-  border: none;
-  border-radius: 50px;
-  background-color: rgb(136, 134, 131);
-  font-family: "Protest Revolution", sans-serif;
-  color: white;
-  text-align: center;
-  font-size: 22px;
-}
-
-.Validated {
-  background-color: green;
-}
-
 .Element {
   overflow: hidden;
   display: flex;

@@ -21,5 +21,13 @@ Quagga.init(
 
 Quagga.onDetected(function (data) {
   const code = data.codeResult.code;
-  console.log(code);
+  console.log("Code detected:", code);
+  // Vérifier si le code est déjà présent dans TabList
+  if (TabList.includes(code)) {
+    console.log("Code already exists in TabList.");
+  } else {
+    // Ajouter le code détecté dans TabList
+    TabList.push(code);
+    console.log("Updated TabList:", TabList);
+  }
 });
