@@ -19,12 +19,23 @@ Quagga.init(
   }
 );
 
+let detectionEnCours = false;
+
 Quagga.onDetected(function (data) {
-  const code = data.codeResult.code;
-  console.log(code);
-  AddText.value = code;
-  // Vérifier si le code est déjà présent dans TabList
-  VerifeCodeToTabList(code);
+  if (!detectionEnCours) {
+    // Si aucune détection en cours
+    detectionEnCours = true; // Mettre l'état de la détection à true
+    const code = data.codeResult.code;
+    console.log(code);
+    AddText.value = code;
+    // Vérifier si le code est déjà présent dans TabList
+    VerifeCodeToTabList(code);
+
+    // Attendre 2 secondes avant de permettre une nouvelle détection
+    setTimeout(() => {
+      detectionEnCours = false; // Réinitialiser l'état de la détection à false
+    }, 1000);
+  }
 });
 
 function VerifeCodeToTabList(code) {
