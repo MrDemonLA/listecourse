@@ -24,7 +24,7 @@ Quagga.onDetected(function (data) {
   console.log(code);
   AddText.value = code;
   // Vérifier si le code est déjà présent dans TabList
-  VerifeCodeToTabList();
+  VerifeCodeToTabList(code);
 });
 
 function VerifeCodeToTabList(code) {
