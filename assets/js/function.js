@@ -1,4 +1,4 @@
-function refreshList() {
+function refreshList(TabList) {
   // Supprimer tous les éléments existants de la liste HTML
   List.innerHTML = "";
 
@@ -40,8 +40,12 @@ function refreshList() {
 
       // Supprimer l'élément du tableau sans vérification
       TabList.splice(indexToRemove, 1);
-      refreshList();
-      console.log(TabList);
+
+      // Envoyer la suppression au serveur
+      sendDeleteRequest(item);
+
+      // Actualiser le chargement du document JSON après suppression
+      refreshList(TabList);
     });
 
     // Ajouter le paragraphe et le bouton à l'élément div
@@ -63,13 +67,51 @@ function refreshList() {
 
     // Ajoutez un écouteur d'événements pour confirmer la suppression de la liste et masquer la boîte de dialogue
     confirmButton.addEventListener("click", () => {
-      // Mettez votre logique de suppression de liste ici
-      TabList.length = 0;
-      refreshList();
+      deleteAllItemsFromAPI();
       // Masquer la boîte de dialogue
       confirmationModal.style.display = "none";
+
+      // Actualiser le chargement du document JSON après suppression
+      List.innerHTML = "";
+      console.log(TabList);
     });
   });
 }
 
-refreshList();
+// Appel initial pour charger le document JSON
+
+const sendDeleteRequest = (TabList, item) => {
+  fetch(`https://api-list-iy8c.vercel.app/supprimer/${item}`, {
+    method: "DELETE", // Méthode HTTP DELETE pour supprimer l'élément
+    headers: {
+      "Content-Type": "application/json", // Indique que le contenu envoyé est JSON
+    },
+    body: JSON.stringify({ items: TabList }),
+  })
+    .then((response) => {
+      console.log(response); // Afficher la réponse pour déboguer
+      if (!response.ok) {
+        throw new Error("La requête de suppression a échoué.");
+      }
+      console.log("Suppression réussie.");
+    })
+    .catch((error) => {
+      console.error("Erreur lors de la suppression :", error);
+    });
+};
+
+function deleteAllItemsFromAPI() {
+  fetch("https://api-list-iy8c.vercel.app/supprimer-tout", {
+    method: "DELETE",
+  })
+    .then((response) => {
+      if (!response.ok) {
+        throw new Error("La requête de suppression a échoué.");
+      }
+      console.log("Suppression réussie.");
+      // Actualiser le chargement du document JSON après suppression
+    })
+    .catch((error) => {
+      console.error("Erreur lors de la suppression de la liste :", error);
+    });
+}
