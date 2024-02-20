@@ -24,10 +24,15 @@ Quagga.onDetected(function (data) {
   console.log(code);
   AddText.value = code;
   // Vérifier si le code est déjà présent dans TabList
+  VerifeCodeToTabList();
+});
+
+function VerifeCodeToTabList(code) {
   fetch("https://api-list-iy8c.vercel.app/afficher")
     .then((response) => response.json())
     .then((data) => {
       const TabList = data.TabList;
+      console.log(TabList);
       if (TabList.includes(code)) {
         console.log("Le code existe déjà dans TabList.");
       } else {
@@ -39,7 +44,7 @@ Quagga.onDetected(function (data) {
     .catch((error) =>
       console.error("Erreur lors du chargement du fichier JSON :", error)
     );
-});
+}
 
 function addCodeToTabList(code) {
   // Envoyer le code détecté à l'API pour l'ajouter à la liste
